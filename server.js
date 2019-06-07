@@ -1,9 +1,17 @@
+// import knex
+const knex = require('knex');
+// knex config
+const knexConfig = require('./knexfile.js');
+// implement knex
+const db = knex(knexConfig.development);
+
 // import express
 const express = require('express');
 // implement server
 const server = express();
 // body parser
 server.use(express.json());
+
 
 // default fallback
 server.get('/', (req, res) => {
