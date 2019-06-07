@@ -41,7 +41,23 @@ server.post('/api/actions', (req, res) => {
 });
 
 // get projects by id
+server.get('/api/projects/:id', (req, res) => {
+    const { id } = req.params;
+    const project = db("projects").where({ id });
+    const actions = db("projects")
+      .join("actions", "actions.project_id", "projects.id")
+      .where("projects.id", id);
 
+    Promise.all([project, actions])
+      .then(projectAll => {
+        let project = projectAll[0][0];
+        let actions = projectAll[1];
+        actions.forEach(action => (action.complete = !!action.complete));
+        const result = { ...project, actions: actions };
+        res.status(200).json(result);
+      })
+      .catch(err => res.status(500).json({ error: 'error retrieving project' }));
+});
 
 
 // default fallback
