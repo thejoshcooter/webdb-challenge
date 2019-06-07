@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "knex": "^0.17.3",
+    "nodemon": "^1.19.1",
+    "sqlite3": "^4.0.8"
+  },
+  "name": "webdb-challenge",
+  "description": "This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thejoshcooter/webdb-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thejoshcooter/webdb-challenge/issues"
+  },
+  "homepage": "https://github.com/thejoshcooter/webdb-challenge#readme"
+}
